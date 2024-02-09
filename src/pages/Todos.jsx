@@ -20,6 +20,8 @@ const Todos = () => {
 
   const [newtaskTitle, setNewTaskTitle] = useState("");
   const [newTaskPriority, setNewTaskPriority] = useState("low");
+  const [editTaskId, setEditTaskId] = useState(null);
+  const [editedTaskTitle, setEditedTaskTitle] = useState("");
 
   const handleAddedTask = () => {
     if (newtaskTitle.trim() === "") {
@@ -35,6 +37,19 @@ const Todos = () => {
       setNewTaskTitle("");
       setTotalTasks(totalTasks + 1);
     }
+  };
+
+  const handleEditClick = (id, title) => {
+    setEditTaskId(id);
+    setEditedTaskTitle(title);
+  };
+
+  const handleEditTask = (id) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, title: editedTaskTitle } : task
+    );
+    setTasks(updatedTasks);
+    setEditTaskId(null);
   };
 
   return (
@@ -81,8 +96,22 @@ const Todos = () => {
 
       <div className="mt-4 text-decoration-none">
         {tasks.map((task) => (
-          <h2
-            className={`font-bold mb-3 
+          <div
+            key={task.id}
+            className="d-md-flex justify-content-md-between border-bottom py-2"
+          >
+            {editTaskId === task.id ? (
+              <div className="form">
+                <input
+                  type="text"
+                  value={editedTaskTitle}
+                  onChange={(e) => setEditedTaskTitle(e.target.value)}
+                  className="form-control"
+                />
+              </div>
+            ) : (
+              <h2
+                className={`font-bold mb-3 
                     ${
                       task.priority === "low"
                         ? "text-primary"
@@ -96,9 +125,28 @@ const Todos = () => {
                         : "none"
                     }
                     `}
-          >
-            {task.title}
-          </h2>
+              >
+                {task.title}
+              </h2>
+            )}
+            <div className="gap-3 d-flex">
+              {editTaskId === task.id ? (
+                <button
+                  onClick={() => handleEditTask(task.id)}
+                  className="btn btn-outline-dark"
+                >
+                  Save
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleEditClick(task.id, task.title)}
+                  className="btn btn-dark"
+                >
+                  Edit
+                </button>
+              )}
+            </div>
+          </div>
         ))}
       </div>
     </div>

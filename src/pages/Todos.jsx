@@ -21,6 +21,22 @@ const Todos = () => {
   const [newtaskTitle, setNewTaskTitle] = useState("");
   const [newTaskPriority, setNewTaskPriority] = useState("low");
 
+  const handleAddedTask = () => {
+    if (newtaskTitle.trim() === "") {
+      alert("Can't add with empty title");
+    } else {
+      const newTask = {
+        id: tasks.length + 1,
+        title: newtaskTitle,
+        status: "incomplete",
+        priority: newTaskPriority,
+      };
+      setTasks([...tasks, newTask]);
+      setNewTaskTitle("");
+      setTotalTasks(totalTasks + 1);
+    }
+  };
+
   return (
     <div className="container py-5">
       <h3 className="font-bold">Todulo - Todo List</h3>
@@ -38,11 +54,16 @@ const Todos = () => {
             className="form-control"
             placeholder="Enter task"
             value={newtaskTitle}
+            onChange={(e) => setNewTaskTitle(e.target.value)}
           />
           <label htmlFor="task">Enter task</label>
         </div>
         <div className="form-floating mb-3">
-          <select className="form-select pt-1" value={newTaskPriority}>
+          <select
+            className="form-select pt-1"
+            value={newTaskPriority}
+            onChange={(e) => setNewTaskPriority(e.target.value)}
+          >
             {priorities.map((priority) => (
               <option key={priority.id} value={priority.label}>
                 {priority.label}
@@ -50,7 +71,35 @@ const Todos = () => {
             ))}
           </select>
         </div>
-        <button className="btn btn-primary rounded-pill">Add Task</button>
+        <button
+          className="btn btn-primary rounded-pill"
+          onClick={handleAddedTask}
+        >
+          Add Task
+        </button>
+      </div>
+
+      <div className="mt-4 text-decoration-none">
+        {tasks.map((task) => (
+          <h2
+            className={`font-bold mb-3 
+                    ${
+                      task.priority === "low"
+                        ? "text-primary"
+                        : task.priority === "medium"
+                        ? "text-warning"
+                        : "text-danger"
+                    }
+                    ${
+                      task.status === "completed"
+                        ? "text-decoration-line-through"
+                        : "none"
+                    }
+                    `}
+          >
+            {task.title}
+          </h2>
+        ))}
       </div>
     </div>
   );

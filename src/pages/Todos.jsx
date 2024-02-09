@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const initialTasks = [
   { id: 1, title: "Task 1", status: "incomplete", priority: "low" },
@@ -75,6 +75,17 @@ const Todos = () => {
       Update.filter((task) => task.status === "completed").length
     );
   };
+
+  useEffect(() => {
+    const store = JSON.parse(localStorage.getItem("tasks"));
+    if (store) {
+      setTasks(store);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div className="container py-5">

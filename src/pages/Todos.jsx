@@ -52,6 +52,15 @@ const Todos = () => {
     setEditTaskId(null);
   };
 
+  const handleDeleteTask = (id) => {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+    setTotalTasks(totalTasks - 1);
+    if (filteredTasks.find((task) => task.status === "completed")) {
+      setCompletedTasks(completedTasks - 1);
+    }
+  };
+
   return (
     <div className="container py-5">
       <h3 className="font-bold">Todulo - Todo List</h3>
@@ -145,6 +154,12 @@ const Todos = () => {
                   Edit
                 </button>
               )}
+              <button
+                className="btn btn-danger"
+                onClick={() => handleDeleteTask(task.id)}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}

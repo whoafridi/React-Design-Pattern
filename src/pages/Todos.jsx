@@ -3,7 +3,7 @@ import { useState } from "react";
 const initialTasks = [
   { id: 1, title: "Task 1", status: "incomplete", priority: "low" },
   { id: 2, title: "Task 2", status: "incomplete", priority: "medium" },
-  { id: 3, title: "Task 3", status: "completed", priority: "high" },
+  { id: 3, title: "Task 3", status: "incomplete", priority: "high" },
 ];
 const priorities = [
   { id: 1, label: "Low" },
@@ -59,6 +59,21 @@ const Todos = () => {
     if (filteredTasks.find((task) => task.status === "completed")) {
       setCompletedTasks(completedTasks - 1);
     }
+  };
+
+  const markComplete = (id) => {
+    const Update = tasks.map((task) =>
+      task.id === id
+        ? {
+            ...task,
+            status: task.status === "incomplete" ? "completed" : "incomplete",
+          }
+        : task
+    );
+    setTasks(Update);
+    setCompletedTasks(
+      Update.filter((task) => task.status === "completed").length
+    );
   };
 
   return (
@@ -154,6 +169,16 @@ const Todos = () => {
                   Edit
                 </button>
               )}
+              <button
+                onClick={() => markComplete(task.id)}
+                className={` ${
+                  task.status === "completed"
+                    ? "btn btn-success disabled"
+                    : "btn btn-warning"
+                }`}
+              >
+                {task.status === "completed" ? "Completed" : "Incomplete"}
+              </button>
               <button
                 className="btn btn-danger"
                 onClick={() => handleDeleteTask(task.id)}

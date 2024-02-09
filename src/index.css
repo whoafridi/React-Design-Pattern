@@ -12,11 +12,6 @@ code {
     monospace;
 }
 
-.btn {
-  --bs-btn-padding-x: 2rem;
-  --bs-btn-padding-y: 0.75rem;
-}
-
 .backdrop-blur-md {
   backdrop-filter: blur(20px);
 }

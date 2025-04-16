@@ -1,42 +1,70 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
 const Hero = () => {
   return (
-    <section className="py-5">
-      <div className="container py-5">
-        <h1 className="text-center text-dark display-1 fw-semibold">
-          <span className="text-primary">Organize your</span> work and <br />{" "}
-          life, finally.
-        </h1>
+    <section class="relatve">
+      <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
+        <div class="mx-auto mb-12 w-full max-w-3xl text-center md:mb-16 lg:mb-20">
+          <h1 class="mb-4 text-4xl font-semibold md:text-6xl">
+            The Website You Want Without The{" "}
+            <span class="bg-[url('https://assets.website-files.com/63904f663019b0d8edf8d57c/6390526ac2a607693620c97b_Rectangle%2010.svg')] bg-cover bg-center px-4 text-white">
+              Dev Time
+            </span>
+            .
+          </h1>
+          <p class="mx-auto mb-5 max-w-[528px] text-xl text-[#636262] lg:mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+            purus sit amet luctus venenatis, lectus
+          </p>
 
-        <div className="row">
-          <div className="col-md-6 mx-auto">
-            <p className="text-center my-4">
-              Become focused, organized, and calm with todo app. The World's #1
-              task manager app
-            </p>
+          <div class="flex justify-center">
+            <a
+              href="#"
+              class="mr-5 inline-block rounded-xl bg-black px-8 py-4 text-center font-semibold text-white [box-shadow:rgb(19,_83,_254)_6px_6px] md:mr-6"
+            >
+              Get Started
+            </a>
+            <a
+              href="#"
+              class="flex max-w-full flex-row items-center justify-center rounded-xl border border-solid border-[#1353fe] px-6 py-3 font-semibold text-[#1353fe] [box-shadow:rgb(19,_83,_254)_6px_6px]"
+            >
+              <img
+                src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63905a575ec39b6784fc687c_Play.svg"
+                alt=""
+                class="mr-2 inline-block w-6"
+              />
+              <p class="text-black">View Showreel</p>
+            </a>
+            {/* <Link
+                to="/get-started"
+                className="mr-5 inline-block rounded-xl bg-black px-8 py-4 text-center font-semibold text-white [box-shadow:rgb(19,_83,_254)_6px_6px] transition-all duration-300 hover:bg-white hover:text-black hover:shadow-lg"
+              >
+                Get Started
+              </Link>
+
+              <Link
+                to="/showreel"
+                className="flex max-w-full items-center justify-center rounded-xl border border-solid border-[#1353fe] px-6 py-3 font-semibold text-[#1353fe] [box-shadow:rgb(19,_83,_254)_6px_6px] transition-all duration-300 hover:bg-[#1353fe] hover:text-white hover:border-transparent"
+              >
+                <img
+                  src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63905a575ec39b6784fc687c_Play.svg"
+                  alt="Play Icon"
+                  className="mr-2 inline-block w-6"
+                />
+                <p className="text-black">View Showreel</p>
+              </Link> */}
           </div>
         </div>
-        <div className="d-flex flex-wrap justify-content-center gap-3 text-center">
-          <Link to="/todos" className="btn btn-primary rounded-pill">
-            Start now{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-arrow-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-              />
-            </svg>
-          </Link>
-        </div>
       </div>
+
+      <img
+        src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63905b9f809b5c8180ce30c5_pattern-1.svg"
+        alt=""
+        class="absolute bottom-0 left-0 right-auto top-auto -z-10 inline-block md:bottom-1/2 md:left-0 md:right-auto md:top-auto"
+      />
+      <img
+        src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63905ba1538296b3f50a905e_pattern-2.svg"
+        alt=""
+        class="absolute bottom-auto left-auto right-0 top-0 -z-10 hidden sm:inline-block"
+      />
     </section>
   );
 };

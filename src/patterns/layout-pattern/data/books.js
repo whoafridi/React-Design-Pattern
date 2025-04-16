@@ -1,0 +1,32 @@
+export const books = [
+  {
+    title: "The Great Adventure",
+    author: "Agata Vanichev",
+    genre: "Fantasy",
+    yearPublished: 2020,
+    isbn: "978-3-16-148410-0",
+    pages: 350,
+    language: "English",
+    coverImage: "https://example.com/images/great_adventure.jpg",
+  },
+  {
+    title: "Mystery of the Old Mansion",
+    author: "Lem Channing",
+    genre: "Mystery",
+    yearPublished: 2018,
+    isbn: "978-1-23-456789-7",
+    pages: 250,
+    language: "English",
+    coverImage: "https://example.com/images/old_mansion.jpg",
+  },
+  {
+    title: "Science Unveiled",
+    author: "Drusie Renols",
+    genre: "Science",
+    yearPublished: 2015,
+    isbn: "978-0-12-345678-9",
+    pages: 500,
+    language: "English",
+    coverImage: "https://example.com/images/science_unveiled.jpg",
+  },
+];

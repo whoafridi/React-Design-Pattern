@@ -1,7 +1,8 @@
-import Hero from "../components/Hero";
-import DataTable from "../components/Table/DataTable";
 import React, { useMemo } from "react";
 import mockData from "../../data/mock_data.json";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import DataTable from "../components/Table/DataTable";
 
 const Home = () => {
   const data = useMemo(() => mockData, []);
@@ -13,7 +14,7 @@ const Home = () => {
       header: ({ column }) => {
         return (
           <button
-            className="btn btn-light"
+            className="flex items-center"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
             Id
@@ -33,25 +34,30 @@ const Home = () => {
           </button>
         );
       },
+      meta: { filterKey: "id", filterVariant: "number" },
     },
     {
       header: "Name",
       accessorFn: (row) => `${row.first_name} ${row.last_name}`,
+      meta: { filterKey: "name" },
     },
     {
       accessorKey: "first_name",
       header: "First name",
       footer: "First name",
+      meta: { filterKey: "first_name" },
     },
     {
       accessorKey: "last_name",
       header: "Last name",
       footer: "Last name",
+      meta: { filterKey: "last_name" },
     },
     {
       accessorKey: "email",
       header: "Email",
       footer: "Email",
+      meta: { filterKey: "email" },
     },
     {
       accessorKey: "gender",
@@ -62,12 +68,12 @@ const Home = () => {
       accessorKey: "age",
       header: "Age",
       footer: "Age",
-      // extra one if we format a cell for a date/ / we can do whatever we want
-      //   cell : info => DateTime.fromISO(info.getvalue()).tolecaleString(DateTime.DATE_MED)
+      meta: { filterKey: "age", filterVariant: "number" },
     },
   ];
   return (
     <>
+      <Header />
       <Hero />
       <DataTable data={data} columns={columns} />
     </>

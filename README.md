@@ -1,16 +1,14 @@
-## Todo List Application
+## Layout Pattern in React.
 
-The Todo List application is a simple yet powerful task management tool built with React js. It provides users with an intuitive interface to organize tasks efficiently, featuring add, edit, complete, and delete functionalities, along with a priority system to categorize tasks.
+A common and effective way to structure React applications is by implementing a layout pattern, where a parent `Layout` component wraps around various pages or sections of the app. This pattern promotes consistency, reusability, and cleaner architecture.
 
-## Features
+### Advantages of This Layout Pattern
 
-- Added functionality to add new tasks into the task list.
-- Enabled editing of existing tasks, providing users with flexibility in managing their tasks.
-- Implemented the features that aims to mark tasks as completed
-- Ensure delete tasks to help users delete their tasks.
+- Reusability :
+  Shared UI components like the Navbar, Sidebar, or Footer remain consistent across all pages.
 
-## Technologies Used
+- Better Code Organization :
+  Keeps layout logic separate from page-specific content, leading to a more modular and maintainable codebase.
 
-- React - for building user interfaces.
-- Reac router dom - Basic routing 
-- Bootstrap 5
+- Easier Maintenance :
+  Updating layout elements in one place automatically reflects across the entire application.
